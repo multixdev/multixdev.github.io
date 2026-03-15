@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="uk" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MULTIX System Code</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="topbar">
+        <div class="logo">
+            <div class="logo-icon">
+                <div class="rhombus"></div>
+                <div class="square"></div>
+            </div>
+            <span>MULTIX</span>
+        </div>
+        <div class="actions">
+            <button id="theme-toggle" class="btn flat">Тема</button>
+            <button id="sync-btn" class="btn outline yellow">
+                <span id="sync-status">Очікування PAT</span>
+            </button>
+        </div>
+    </header>
+
+    <main class="workspace">
+        <aside class="sidebar">
+            <div class="sidebar-header">РЕПОЗИТОРІЙ</div>
+            <ul id="file-tree" class="file-list">
+                <li class="empty-state">Підключіть GitHub для завантаження файлів</li>
+            </ul>
+        </aside>
+
+        <section class="editor-area">
+            <div class="tabs">
+                <div class="tab active">welcome.md</div>
+            </div>
+            <textarea id="editor" spellcheck="false" readonly>
+# Вітаємо в MULTIX System Code
+Середовище розробки готове.
+
+1. Натисніть кнопку статусу (справа вгорі).
+2. Введіть ваш GitHub Personal Access Token (PAT).
+3. Після успішної перевірки ми почнемо роботу з API.</textarea>
+        </section>
+    </main>
+
+    <div id="auth-modal" class="modal hidden">
+        <div class="modal-content">
+            <h2>Синхронізація з GitHub</h2>
+            <p>Введіть ваш Personal Access Token (Classic або Fine-grained), щоб надати PWA доступ до ваших репозиторіїв.</p>
+            <input type="password" id="github-pat-input" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx">
+            <div class="modal-actions">
+                <button id="close-modal" class="btn flat">Скасувати</button>
+                <button id="save-pat" class="btn green">Зберегти та Перевірити</button>
+            </div>
+            <div id="auth-error" class="error-text hidden"></div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
